@@ -27,16 +27,19 @@ Node.js is necessary to run the JavaScript code and manage the dependencies, whi
 
 1. **Clone the repository**
    ```bash
-   git clone [URL to this repository]
+   git clone [https://github.com/minalaz/testing-SauceDemo-playwright]
 2. **Install dependencies**
    Navigate to the project directory and run:
    ```bash
    npm install
    
 ## Running the Tests
-   To run the tests, execute:
+1. **Runing the tests**
    ```bash
-   npm test
+   npx playwright test
+   
+
+
 
 
 
