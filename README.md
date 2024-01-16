@@ -34,11 +34,9 @@ Node.js is necessary to run the JavaScript code and manage the dependencies, whi
    npm install
    
 ## Running the Tests
-
-To run the tests, execute:
-
-```bash
-npm test
+   To run the tests, execute:
+   ```bash
+   npm test
 
 
 
