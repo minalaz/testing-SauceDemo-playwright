@@ -1,5 +1,5 @@
 const { expect } = require("@playwright/test");
-import { consts } from "../helpers/consts";
+
 export class ProductPage {
   constructor(page, locators) {
     this.page = page;
@@ -8,11 +8,7 @@ export class ProductPage {
   async navigateToCart() {
     await this.page.click(this.locators.shopingCartLink);
   }
-  async checkingUrl() {
-    await expect(this.page).toHaveURL(consts.productPageUrl, {
-      timeout: 5000,
-    });
-  }
+
   async applyFilter(filterType, filterValue) {
     if (filterType === "click") {
       await this.page.click(this.locators.sortButton);
@@ -87,8 +83,7 @@ export class ProductPage {
   }
   async assertCartCount(numText) {
     const cartCount = this.page.locator(this.locators.cartCount);
-    //".shopping_cart_link .shopping_cart_badge"
-    // Assert that the text of the <span> element is '1'
+
     await expect(cartCount).toHaveText(numText.toString());
   }
 }

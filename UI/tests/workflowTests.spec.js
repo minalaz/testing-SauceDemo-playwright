@@ -48,7 +48,10 @@ test.describe("workflows", () => {
     await test.step("should click on the Cart and open cartPage", async () => {
       await productPage.navigateToCart();
       await methods.checkingUrl(consts.cartUrl); //assert that cart page is opened
-      await cart.assertText(productData.firstProductName); //assert that there is item that we added in the cart
+      await methods.assertElementHasText(
+        checkoutLocators.itemName,
+        productData.firstProductName
+      ); //assert that there is item that we added in the cart
     });
     await test.step("should proceed to Checkout", async () => {
       await cart.navigateToCheckout();
@@ -60,7 +63,7 @@ test.describe("workflows", () => {
         checkoutData.lastName,
         checkoutData.postalCode
       );
-      await checkout.checkingUrl(consts.checkoutStepTwoUrl); //assert that the second step of checkout is opened
+      await methods.checkingUrl(consts.checkoutStepTwoUrl); //assert that the second step of checkout is opened
       await methods.assertElementHasText(
         checkoutLocators.itemName,
         productData.firstProductName

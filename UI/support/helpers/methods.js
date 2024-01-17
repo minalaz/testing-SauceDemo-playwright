@@ -11,14 +11,9 @@ export class Methods {
   async clickOnElement(element) {
     await this.page.click(element);
   }
-  async assertElementHasText(element, text){
-    
-      const textContent = await this.page
-        .locator(element)
-        .textContent();
-  
-      // Perform the assertion on the retrieved text
-      expect(textContent).toContain(text);
-    }
-  }
+  async assertElementHasText(element, text) {
+    const textContent = await this.page.locator(element).textContent();
 
+    expect(textContent).toContain(text);
+  }
+}
