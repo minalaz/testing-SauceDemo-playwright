@@ -1,5 +1,5 @@
 const { expect } = require("@playwright/test");
-import {consts} from "../helpers/consts"
+import { consts } from "../helpers/consts";
 export class ProductPage {
   constructor(page, locators) {
     this.page = page;
@@ -81,7 +81,14 @@ export class ProductPage {
     console.log();
     expect(productPrices).toEqual(sortedProductPricesDesc);
   }
+
   async addProductToCart() {
     await this.page.click(this.locators.firstProductAddCartButton);
+  }
+  async assertCartCount(numText) {
+    const cartCount = this.page.locator(this.locators.cartCount);
+    //".shopping_cart_link .shopping_cart_badge"
+    // Assert that the text of the <span> element is '1'
+    await expect(cartCount).toHaveText(numText.toString());
   }
 }

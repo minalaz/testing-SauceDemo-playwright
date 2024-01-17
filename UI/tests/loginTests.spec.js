@@ -32,7 +32,7 @@ test.describe("Login tests", () => {
       false,
       baseURL,
       errorMessages.emptyErrorMessage
-    );
+    ); //assertThatErrorMessageIsDisplayed
   });
   test("should display an error message for invalid credentials", async () => {
     await loginPage.submitLoginForm(
@@ -44,6 +44,6 @@ test.describe("Login tests", () => {
       false,
       baseURL,
       errorMessages.invalidCredentialsErrorMessage
-    );
+    ); //assert that errorMessageIsDisplayed
   });
 });
