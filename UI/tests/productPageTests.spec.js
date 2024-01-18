@@ -49,8 +49,20 @@ test.describe("Product page tests", () => {
     await productPage.applyFilter(filter.selectOption, filter.priceDesc);
     await productPage.assertSortingByPriceDesc();
   });
-  test("should have count number 1 on shopping cart icon link", async () => {
-    await productPage.addProductToCart();
+  test("should add product to cart and have count number 1 on shopping cart icon link", async () => {
+    await productPage.addProductToCart(
+      productPageLocators.firstProductAddCartButton
+    );
     await productPage.assertCartCount(1);
+  });
+  test("should remove product from the cart and cart icon to be without count number", async () => {
+    await productPage.addProductToCart(
+      productPageLocators.firstProductAddCartButton
+    );
+    await productPage.assertCartCount(1);
+    await productPage.removeProductFromCart(
+      productPageLocators.firstProductRemoveCartButtton
+    );
+    await productPage.assertEmptyCartCount();
   });
 });

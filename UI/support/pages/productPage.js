@@ -78,12 +78,20 @@ export class ProductPage {
     expect(productPrices).toEqual(sortedProductPricesDesc);
   }
 
-  async addProductToCart() {
-    await this.page.click(this.locators.firstProductAddCartButton);
+  async addProductToCart(productAddingBtn) {
+    await this.page.click(productAddingBtn);
   }
   async assertCartCount(numText) {
     const cartCount = this.page.locator(this.locators.cartCount);
 
     await expect(cartCount).toHaveText(numText.toString());
+  }
+  async removeProductFromCart(productRemovingBtn) {
+    await this.page.click(productRemovingBtn);
+  }
+  async assertEmptyCartCount() {
+    const cartCount = this.page.locator(this.locators.cartCount);
+
+    await expect(cartCount).toBeHidden();
   }
 }

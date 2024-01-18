@@ -14,4 +14,5 @@ export const productPageLocators = {
   firstProductAddCartButton: '[data-test="add-to-cart-sauce-labs-backpack"]',
   inventoryItemName: ".inventory_item_name",
   inventoryItemPrice: ".inventory_item_price",
+  firstProductRemoveCartButtton: "#remove-sauce-labs-backpack",
 };
