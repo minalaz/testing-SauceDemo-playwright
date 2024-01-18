@@ -34,7 +34,7 @@ test.describe("Cart tests", () => {
     await methods.checkingUrl(consts.cartUrl); //assert that cart is opened
   });
   test("added product should be visible in the cart", async () => {
-    await productPage.addProductToCart();
+    await productPage.addProductToCart(productPageLocators.firstProductAddCartButton);
     await productPage.navigateToCart();
     await methods.assertElementHasText(
       cartLocators.inventoryItemName,

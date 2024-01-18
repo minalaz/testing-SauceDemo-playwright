@@ -42,7 +42,9 @@ test.describe("workflows", () => {
     });
 
     await test.step("should add product to Cart", async () => {
-      await productPage.addProductToCart();
+      await productPage.addProductToCart(
+        productPageLocators.firstProductAddCartButton
+      );
       await productPage.assertCartCount(1); //assert that the count number on shoping cart icon is 1, as one product is added
     });
     await test.step("should click on the Cart and open cartPage", async () => {
